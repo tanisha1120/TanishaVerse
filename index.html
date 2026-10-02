@@ -1,654 +1,880 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tanisha Singh</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8f8f8;
-            color: #333;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        body.dark { 
-            background-color: #121212; 
-            color: #e0e0e0;
-        }
-        body.dark .navbar { 
-            background-color: #1e1e1e; 
-            border-bottom: 1px solid #333;
-        }
-        body.dark .navbar ul li a { 
-            color: #aaa; 
-        }
-        body.dark .hero { 
-            background-color: #1e1e1e;
-            border-bottom: 1px solid #333; 
-        }
-        body.dark .hero p {
-            color: #aaa; 
-        }
-        body.dark .hero h1 { 
-            color: #f0f0f0; 
-        }
-        body.dark .hero-info { 
-            color: #777;
-        }
-        body.dark .about-text {
-            color: #aaa; 
-        }
-        body.dark .section h2 {
-            color: #f0f0f0;
-        }
-        body.dark .divider {
-            border-top-color: #333; 
-        }
-        body.dark footer {
-            border-top-color: #333;
-            color: #555; 
-        }
-        body.dark .navbar .logo {
-            color: #a07cff; 
-        }
-        body.dark .section-tag { 
-            color: #a07cff; 
-        }
-        body.dark .hero h1 span { 
-            color: #a07cff;
-        }
-        body.dark .project-link {
-            color: #a07cff;
-        }
-        body.dark .cert-period { 
-            color: #a07cff;
-        }
-        body.dark .edu-year { 
-            color: #a07cff;
-        }
-        body.dark .skill-box { 
-            background-color: #1e1e1e;
-            border-color: #333; 
-            color: #ccc;
-        }
-        body.dark .project-box { 
-            background-color: #1e1e1e; 
-            border-color: #333;
-        }
-        body.dark .project-box h3 { 
-            color: #f0f0f0; 
-        }
-        body.dark .project-box p { 
-            color: #aaa; 
-        }
-        body.dark .edu-box { 
-            background-color: #1e1e1e;
-            border-color: #333; 
-        }
-        body.dark .edu-box h3 { 
-            color: #f0f0f0; 
-        }
-        body.dark .edu-box p { 
-            color: #888;
-        }
-        body.dark .cert-box {
-            background-color: #1e1e1e; 
-            border-color: #333;
-        }
-        body.dark .cert-box h3 { 
-            color: #f0f0f0;
-        }
-        body.dark .cert-box p {
-            color: #aaa; 
-        }
-        body.dark .contact-item {
-            background-color: #1e1e1e;
-            border-color: #333; 
-            color: #ccc; 
-        }
-        body.dark .contact-item:hover {
-            border-color: #a07cff;
-            color: #a07cff; 
-        }
-        body.dark .tag { 
-            background-color: #2a2040; 
-            color: #a07cff; 
-        }
-        body.dark .edu-grade { 
-            background-color: #2a2040;
-            color: #a07cff;
-        }
-        body.dark .btn-outline { 
-            border-color: #555; 
-            color: #ddd;
-        }
-        body.dark .btn-outline:hover { 
-            border-color: #a07cff; 
-            color: #a07cff; 
-        }
-        body.dark .toggle-btn {
-            background-color: #2a2040; 
-            border-color: #555;
-            color: #ddd; 
-        }
-        body.dark .photo-placeholder {
-            background-color: #2a2040; 
-            border-color: #444; 
-            color: #888;
-        }
-
-        .navbar {
-            background-color: #ffffff;
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .navbar .logo {
-            font-size: 1.2rem; 
-            font-weight: 700; 
-            color: #6c3fc5; 
-        }
-
-        .navbar ul { 
-            list-style: none;
-            display: flex; 
-            gap: 25px; 
-            align-items: center;
-        }
-
-        .navbar ul li a { 
-            text-decoration: none; 
-            color: #555;
-            font-size: 0.9rem; 
-        }
-        .navbar ul li a:hover { 
-            color: #6c3fc5;
-        }
-
-        .toggle-btn {
-            background-color: #f0ebff;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 6px 12px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            color: #333;
-        }
-
-        .toggle-btn:hover { 
-            border-color: #6c3fc5;
-        }
-
-        .hero {
-            background-color: #ffffff;
-            padding: 60px 40px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .hero-inner {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .hero-text { flex: 1; }
-
-        
-        .photo-placeholder {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background-color: #f0ebff;
-            border: 2px dashed #b39ddb;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            text-align: center;
-            overflow: hidden;
-        }
-
-        .photo-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            display: none;
-        }
-
-        .placeholder-text {
-            font-size: 2.2rem;
-            margin-bottom: 4px; 
-        }
-        .placeholder-hint { 
-            font-size: 0.68rem;
-            color: #bbb;
-            padding: 0 8px; 
-        }
-
-        .hero h1 { 
-            font-size: 2.2rem;
-            font-weight: 700; 
-            color: #222; 
-            margin-bottom: 12px; 
-        }
-        .hero h1 span { 
-            color: #6c3fc5; 
-        }
-
-        .hero p {
-            font-size: 0.95rem;
-            color: #666;
-            max-width: 480px;
-            margin-bottom: 22px;
-            line-height: 1.7;
-        }
-
-        .hero-btns { 
-            display: flex; 
-            gap: 12px; 
-            flex-wrap: wrap; 
-        }
-
-        .btn-purple {
-            background-color: #6c3fc5;
-            color: white;
-            padding: 10px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .btn-purple:hover { background-color: #5a32a8; }
-
-        .btn-outline {
-            border: 1px solid #ccc;
-            color: #333;
-            padding: 10px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            background-color: transparent;
-        }
-
-        .btn-outline:hover { 
-            border-color: #6c3fc5; 
-            color: #6c3fc5;
-        }
-
-        .hero-info {
-            margin-top: 18px;
-            font-size: 0.82rem; 
-            color: #888; 
-        }
-
-        .section { 
-            padding: 50px 40px; 
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .section h2 { 
-            font-size: 1.4rem; 
-            font-weight: 700; 
-            margin-bottom: 6px; 
-            color: #222; 
-        }
-
-        .section-tag {
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #6c3fc5;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .divider { 
-            border: none; 
-            border-top: 1px solid #e0e0e0;
-            margin-bottom: 28px;
-            margin-top: 10px; 
-        }
-
-        .about-text { 
-            font-size: 0.95rem; 
-            color: #555; 
-            line-height: 1.8; 
-        }
-        .about-text p {
-            margin-bottom: 12px;
-        }
-
-        .skills-row { 
-            display: flex; 
-            flex-wrap: wrap;
-            gap: 10px; 
-        }
-
-        .skill-box {
-            background-color: #ffffff;
-            border: 1px solid #e0e0e0;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            color: #444;
-        }
-
-        .project-box {
-            background-color: #ffffff;
-            border: 1px solid #e0e0e0;
-            border-radius: 10px;
-            padding: 20px 24px;
-            margin-bottom: 16px;
-        }
-
-        .project-box h3 { 
-            font-size: 1rem; 
-            font-weight: 600; 
-            margin-bottom: 8px; 
-            color: #222;
-        }
-        .project-box p { 
-            font-size: 0.85rem; 
-            color: #666; 
-            line-height: 1.6; 
-            margin-bottom: 10px; 
-        }
-
-        .tag {
-            display: inline-block;
-            background-color: #f0ebff;
-            color: #6c3fc5;
-            padding: 3px 10px;
-            border-radius: 999px;
-            font-size: 0.75rem;
-            margin-right: 5px;
-            margin-bottom: 5px;
-        }
-
-        .project-link { 
-            font-size: 0.82rem; 
-            color: #6c3fc5;
-            text-decoration: none;
-            font-weight: 500; 
-            display: inline-block; 
-            margin-top: 6px;
-            }
-        .project-link:hover { 
-            text-decoration: underline;
-        }
-
-        .edu-box {
-            background-color: #ffffff;
-            border: 1px solid #e0e0e0;
-            border-radius: 10px;
-            padding: 16px 20px;
-            margin-bottom: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .edu-box h3 { font-size: 0.92rem; font-weight: 600; color: #222; }
-        .edu-box p { font-size: 0.8rem; color: #888; margin-top: 3px; }
-        .edu-right { text-align: right; flex-shrink: 0; }
-        .edu-year { font-size: 0.75rem; color: #6c3fc5; margin-bottom: 4px; }
-
-        .edu-grade {
-            font-size: 0.8rem;
-            background-color: #f0ebff;
-            color: #6c3fc5;
-            padding: 4px 10px;
-            border-radius: 999px;
-            font-weight: 600;
-            white-space: nowrap;
-        }
-
-        .cert-box { background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 16px 20px; margin-bottom: 12px; }
-        .cert-box h3 { font-size: 0.92rem; font-weight: 600; color: #222; margin-bottom: 4px; }
-        .cert-period { font-size: 0.78rem; color: #6c3fc5; margin-bottom: 6px; }
-        .cert-box p { font-size: 0.82rem; color: #666; line-height: 1.5; }
-
-        .contact-row { display: flex; flex-wrap: wrap; gap: 12px; }
-
-        .contact-item {
-            background-color: #ffffff;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 12px 18px;
-            font-size: 0.85rem;
-            color: #444;
-            text-decoration: none;
-        }
-
-        .contact-item:hover { border-color: #6c3fc5; color: #6c3fc5; }
-
-        footer { text-align: center; padding: 24px; font-size: 0.8rem; color: #aaa; border-top: 1px solid #e0e0e0; margin-top: 20px; }
-
-        @media (max-width: 600px) {
-            .navbar ul li:not(:last-child) { display: none; }
-            .hero { padding: 40px 20px; }
-            .hero-inner { flex-direction: column-reverse; align-items: center; gap: 24px; }
-            .section { padding: 36px 20px; }
-            .edu-box { flex-direction: column; align-items: flex-start; gap: 8px; }
-            .edu-right { text-align: left; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tanisha Singh | CSE student, C, Java and web</title>
+<meta name="description" content="Portfolio of Tanisha Singh, B.Tech CSE student at KIOT Kanpur. Projects in C, Java and the web.">
+<meta name="theme-color" content="#ebeee7">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2317261d'/%3E%3Ctext x='16' y='23' font-size='20' font-family='sans-serif' font-weight='800' text-anchor='middle' fill='%23f0b429'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+    --paper: #ebeee7;
+    --surface: #f6f8f2;
+    --ink: #17261d;
+    --mute: #55645a;
+    --line: #c9d0c3;
+    --mark: #f0b429;
+    --green: #1f6b45;
+    --grid: rgba(23,38,29,.055);
+}
+:root[data-theme=dark] {
+    --paper: #0f1612;
+    --surface: #151e19;
+    --ink: #e4ebe2;
+    --mute: #93a398;
+    --line: #26332b;
+    --mark: #f2c14e;
+    --green: #6fcf97;
+    --grid: rgba(228,235,226,.045);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+body {
+    font: 400 1.0625rem/1.65 Figtree,system-ui,sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    transition: background .3s,color .3s;
+}
+::selection {
+    background: var(--mark);
+    color: #17261d;
+}
+a {
+    color: inherit;
+}
+:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+.wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 28px;
+}
+h1,h2,h3 {
+    font-family: 'Bricolage Grotesque',sans-serif;
+    line-height: 1.05;
+    letter-spacing: -.025em;
+}
+.mono {
+    font-family: 'JetBrains Mono',ui-monospace,monospace;
+}
+/* nav */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: color-mix(in srgb,var(--paper) 86%,transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+}
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    height: 64px;
+}
+.logo {
+    font: 800 1.2rem 'Bricolage Grotesque',sans-serif;
+    text-decoration: none;
+    letter-spacing: -.02em;
+}
+.nav-r {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.nav-r a {
+    text-decoration: none;
+    color: var(--mute);
+    font-size: .95rem;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: color .2s,background .2s;
+}
+.nav-r a:hover {
+    color: var(--ink);
+}
+.nav-r a.on {
+    color: var(--ink);
+    background: color-mix(in srgb,var(--mark) 38%,transparent);
+}
+#theme {
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--ink);
+    border-radius: 50%;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    margin-left: 8px;
+    transition: border-color .2s,transform .3s;
+}
+#theme:hover {
+    border-color: var(--ink);
+    transform: rotate(18deg);
+}
+#theme svg {
+    width: 18px;
+    height: 18px;
+}
+.sun {
+    display: none;
+}
+:root[data-theme=dark] .sun {
+    display: block;
+}
+:root[data-theme=dark] .moon {
+    display: none;
+}
+/* hero */
+.hero {
+    background: linear-gradient(var(--grid) 1px,transparent 1px) 0 0/32px 32px,linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/32px 32px;
+    border-bottom: 1px solid var(--line);
+}
+.hero .wrap {
+    display: grid;
+    grid-template-columns: 1fr 330px;
+    gap: 72px;
+    align-items: center;
+    padding-top: 88px;
+    padding-bottom: 96px;
+}
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: .92rem;
+    color: var(--mute);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 28px;
+}
+.status i {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #2fb36b;
+    box-shadow: 0 0 0 0 rgba(47,179,107,.5);
+    animation: pulse 2.4s infinite;
+}
+@keyframes pulse {
+    70% {
+        box-shadow: 0 0 0 8px rgba(47,179,107,0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(47,179,107,0);
+    }
+}
+h1 {
+    font-size: clamp(3.2rem,8.4vw,6.4rem);
+    font-weight: 800;
+    line-height: .95;
+    margin-bottom: 26px;
+}
+.typed {
+    font-size: clamp(.95rem,2vw,1.2rem);
+    min-height: 2.2em;
+    color: var(--green);
+    margin-bottom: 22px;
+}
+.typed b {
+    color: var(--mute);
+    font-weight: 400;
+    margin-right: .6ch;
+}
+.caret {
+    display: inline-block;
+    width: .6ch;
+    height: 1.1em;
+    background: var(--ink);
+    vertical-align: -.18em;
+    margin-left: 2px;
+    animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+.lede {
+    max-width: 520px;
+    color: var(--mute);
+    margin-bottom: 32px;
+}
+.btns {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 44px;
+}
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: .95rem;
+    padding: 12px 22px;
+    border-radius: 8px;
+    border: 1.5px solid var(--ink);
+    transition: background .2s,color .2s,border-color .2s;
+}
+.btn.p {
+    background: var(--ink);
+    color: var(--paper);
+}
+.btn.p:hover {
+    background: var(--mark);
+    border-color: var(--mark);
+    color: #17261d;
+}
+.btn.s:hover {
+    background: var(--ink);
+    color: var(--paper);
+}
+.facts {
+    display: flex;
+    gap: 36px;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+}
+.facts dt {
+    font-size: .82rem;
+    color: var(--mute);
+}
+.facts dd {
+    font: 700 1.05rem 'Bricolage Grotesque',sans-serif;
+    letter-spacing: -.01em;
+}
+.portrait {
+    position: relative;
+    aspect-ratio: 4/5;
+    border-radius: 28px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    display: grid;
+    place-items: center;
+    isolation: isolate;
+}
+.portrait::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--mark);
+    border-radius: 28px;
+    transform: translate(-16px,16px) rotate(-3deg);
+    z-index: -1;
+}
+.portrait span {
+    font: 800 6rem 'Bricolage Grotesque',sans-serif;
+    color: var(--line);
+}
+.portrait img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 27px;
+}
+/* sections */
+section {
+    padding: 104px 0 0;
+}
+.grid {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 56px;
+}
+h2 {
+    font-size: clamp(2rem,4vw,2.9rem);
+    font-weight: 800;
+    position: sticky;
+    top: 96px;
+    align-self: start;
+}
+.sub {
+    display: block;
+    font: 400 .95rem Figtree,sans-serif;
+    letter-spacing: 0;
+    color: var(--mute);
+    margin-top: 12px;
+    max-width: 220px;
+    line-height: 1.5;
+}
+.about p {
+    max-width: 62ch;
+    margin-bottom: 18px;
+    font-size: 1.12rem;
+}
+mark {
+    background: linear-gradient(transparent 55%,var(--mark) 55%);
+    color: inherit;
+    padding: 0 2px;
+}
+.now {
+    margin-top: 34px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 22px 26px;
+}
+.now h3 {
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+}
+.now li {
+    list-style: none;
+    padding: 7px 0;
+    border-top: 1px dashed var(--line);
+    color: var(--mute);
+}
+.now li:first-of-type {
+    border: 0;
+}
+.skills {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 36px;
+}
+.skills h3 {
+    font-size: 1.15rem;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--ink);
+}
+.skills li {
+    list-style: none;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line);
+    font-weight: 500;
+}
+.skills em {
+    font-style: normal;
+    font-weight: 400;
+    font-size: .85rem;
+    color: var(--green);
+    margin-left: 8px;
+}
+.proj {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 36px 0;
+    border-top: 2px solid var(--ink);
+    align-items: start;
+}
+.proj:first-child {
+    padding-top: 30px;
+}
+.proj h3 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.proj p {
+    color: var(--mute);
+    margin-bottom: 16px;
+}
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 18px;
+}
+.tags span {
+    font: 500 .78rem 'JetBrains Mono',monospace;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    padding: 3px 9px;
+    border-radius: 4px;
+}
+.plink {
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--mark);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 4px;
+    transition: text-decoration-color .2s;
+}
+.plink:hover {
+    text-decoration-color: var(--green);
+}
+pre {
+    font: 400 .86rem/1.75 'JetBrains Mono',ui-monospace,monospace;
+    background: #17261d;
+    color: #d9e4da;
+    padding: 20px 22px;
+    border-radius: 12px;
+    overflow-x: auto;
+    position: relative;
+    padding-top: 38px;
+    box-shadow: 6px 6px 0 var(--mark);
+}
+pre::before {
+    content: "";
+    position: absolute;
+    left: 18px;
+    top: 14px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #f0b429;
+    box-shadow: 16px 0 #6fcf97,32px 0 #8a9a8f;
+}
+pre .d {
+    color: #7f9686;
+}
+pre .k {
+    color: #f0b429;
+}
+pre .g {
+    color: #6fcf97;
+}
+.tl {
+    border-left: 2px solid var(--ink);
+    margin-left: 6px;
+}
+.tl article {
+    position: relative;
+    padding: 0 0 38px 34px;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 20px;
+}
+.tl article::before {
+    content: "";
+    position: absolute;
+    left: -8px;
+    top: 7px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 2px solid var(--ink);
+}
+.tl article.now-dot::before {
+    background: var(--mark);
+}
+.tl time {
+    font-size: .9rem;
+    color: var(--mute);
+    padding-top: 3px;
+}
+.tl h3 {
+    font-size: 1.25rem;
+    margin-bottom: 4px;
+}
+.tl p {
+    color: var(--mute);
+    font-size: .98rem;
+    max-width: 56ch;
+}
+.chip {
+    display: inline-block;
+    font-size: .72rem;
+    font-weight: 600;
+    background: var(--mark);
+    color: #17261d;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 8px;
+    vertical-align: 3px;
+    font-family: Figtree,sans-serif;
+    letter-spacing: 0;
+}
+.grade {
+    display: inline-block;
+    margin-top: 8px;
+    font-weight: 600;
+    font-size: .88rem;
+    color: var(--green);
+}
+.contact {
+    padding-bottom: 104px;
+}
+.mail {
+    display: inline-block;
+    font: 800 clamp(1.5rem,4.6vw,3.1rem) 'Bricolage Grotesque',sans-serif;
+    letter-spacing: -.03em;
+    text-decoration: underline;
+    text-decoration-color: var(--mark);
+    text-decoration-thickness: 6px;
+    text-underline-offset: 8px;
+    word-break: break-all;
+    transition: text-decoration-color .2s;
+}
+.mail:hover {
+    text-decoration-color: var(--green);
+}
+.crow {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 30px;
+}
+#copy {
+    font: 600 .95rem Figtree,sans-serif;
+    background: var(--ink);
+    color: var(--paper);
+    border: 0;
+    border-radius: 8px;
+    padding: 11px 20px;
+    cursor: pointer;
+    min-width: 132px;
+    transition: background .2s,color .2s;
+}
+#copy.ok {
+    background: var(--green);
+    color: #fff;
+}
+.crow a {
+    font-weight: 500;
+    color: var(--mute);
+    text-underline-offset: 4px;
+}
+.crow a:hover {
+    color: var(--ink);
+}
+footer {
+    border-top: 1px solid var(--line);
+    padding: 26px 0;
+    color: var(--mute);
+    font-size: .9rem;
+}
+footer .wrap {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+@media(max-width:860px) {
+    .hero .wrap {
+        grid-template-columns: 1fr;
+        gap: 56px;
+        padding-top: 56px;
+    }
+    .portrait {
+        max-width: 280px;
+        order: -1;
+    }
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+    h2 {
+        position: static;
+    }
+    .sub {
+        max-width: none;
+    }
+    .skills {
+        grid-template-columns: 1fr 1fr;
+    }
+    .proj {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    section {
+        padding-top: 80px;
+    }
+}
+@media(max-width:600px) {
+    nav {
+        height: auto;
+        padding: 10px 0;
+        flex-wrap: wrap;
+    }
+    .nav-r {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 2px;
+    }
+    .nav-r a {
+        white-space: nowrap;
+    }
+    .logo {
+        flex: 1;
+    }
+    .wrap {
+        padding: 0 20px;
+    }
+    .skills {
+        grid-template-columns: 1fr;
+    }
+    .tl article {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+}
+@media(prefers-reduced-motion:reduce) {
+    * {
+        animation: none!important;
+        transition: none!important;
+        scroll-behavior: auto!important;
+    }
+}
+</style>
 </head>
 <body>
+<header>
+ <nav class="wrap" aria-label="Main">
+  <a class="logo" href="#top">Tanisha Singh</a>
+  <div class="nav-r">
+   <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a>
+   <button id="theme" aria-label="Switch colour theme" title="Switch theme">
+    <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+   </button>
+  </div>
+ </nav>
+</header>
 
-<div class="navbar">
-    <div class="logo">Tanisha Singh</div>
-    <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><button class="toggle-btn" id="theme-toggle">🌙 Dark</button></li>
-    </ul>
-</div>
+<main id="top">
+<div class="hero"><div class="wrap">
+ <div>
+  <p class="status"><i></i>Open to roles after graduating in 2027</p>
+  <h1>Tanisha<br>Singh</h1>
+  <p class="typed mono" aria-label="I write programs in C and Java, build web pages, and I'm learning Python."><b>$</b><span id="type">I write programs in C and Java.</span><span class="caret"></span></p>
+  <p class="lede">Third-year CSE student at KIOT Kanpur. I build small, finished projects and learn something new from each one. I'm looking for a role where I can do real work and keep growing.</p>
+  <div class="btns"><a class="btn p" href="#projects">See my projects</a><a class="btn s" href="https://github.com/tanisha1120" target="_blank" rel="noopener">GitHub</a><a class="btn s" href="mailto:tanishasingh3082005@gmail.com">Email me</a></div>
+  <dl class="facts">
+   <div><dt>Based in</dt><dd>Gorakhpur, UP</dd></div>
+   <div><dt>Studying</dt><dd>B.Tech CSE, 2027</dd></div>
+   <div><dt>Current SGPA</dt><dd>8.1</dd></div>
+  </dl>
+ </div>
+ <div class="portrait"><span>TS</span><img src="./me.jpeg" alt="Portrait of Tanisha Singh" onerror="this.remove()"></div>
+</div></div>
 
-<div class="hero">
-    <div class="hero-inner">
-        <div class="hero-text">
-            <h1>Hey, I'm <span>Tanisha</span> 👋</h1>
-            <p>CSE student at KIOT Kanpur. I build small projects, and I'm currently learning Python. Looking for a role where I can actually grow and learn on the job.</p>
-            <div class="hero-btns">
-                <a href="#projects" class="btn-purple">See my work</a>
-                <a href="https://github.com/tanisha1120" target="_blank" class="btn-outline">GitHub</a>
-                <a href="mailto:tanishasingh3082005@gmail.com" class="btn-outline">Email me</a>
-            </div>
-            <div class="hero-info">📍 Gorakhpur, UP &nbsp;|&nbsp; 🎓 B.Tech CSE · 2027 &nbsp;|&nbsp; ⭐ 8.1 SGPA</div>
-        </div>
+<section id="about"><div class="wrap grid">
+ <h2>About<span class="sub">A short version of how I got here.</span></h2>
+ <div class="about">
+  <p>I'm a third-year CSE student from Gorakhpur. I <mark>started coding in C in my first year</mark> and it stuck. Since then I've done Java training, built a handful of small projects, and made web pages, including this one.</p>
+  <p>I've also anchored college events, including the IBM SkillsBuild workshop. Outside class, I'm learning Python and getting better at web development with Java.</p>
+  <p>I want a job where I get real work and keep learning. I'm open to any location.</p>
+  <div class="now"><h3>Right now</h3><ul><li>Learning Python on the side</li><li>Building web development skills with Java</li><li>Looking for a first role, anywhere in India</li></ul></div>
+ </div>
+</div></section>
 
-       
-        <div class="photo-placeholder" id="photo-wrap">
-               <img src="./me.jpeg" alt="Tanisha Singh" id="profile-photo">
-            <div class="placeholder-text">🙂</div>
-            <div class="placeholder-hint">Replace src="#" with your photo</div>
-        </div>
+<section id="skills"><div class="wrap grid">
+ <h2>Skills<span class="sub">What I work with, grouped by use.</span></h2>
+ <div class="skills">
+  <div><h3>Languages</h3><ul><li>C</li><li>C++</li><li>Java</li><li>Python<em>learning</em></li></ul></div>
+  <div><h3>Web</h3><ul><li>HTML</li><li>CSS</li><li>JavaScript</li></ul></div>
+  <div><h3>Foundations</h3><ul><li>Object-oriented design</li><li>SQL and DBMS basics</li><li>Git and GitHub</li></ul></div>
+ </div>
+</div></section>
 
-    </div>
-</div>
+<section id="projects"><div class="wrap grid">
+ <h2>Projects<span class="sub">Small, finished, and each one taught me something.</span></h2>
+ <div>
+  <article class="proj">
+   <div>
+    <h3>Typing speed test</h3>
+    <p>A browser game that tracks your words per minute and accuracy as you type. It has easy, medium and hard modes, a timer, and a results screen. Plain HTML, CSS and JavaScript with no libraries.</p>
+    <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+    <a class="plink" href="https://tanisha1120.github.io/TypingTest/" target="_blank" rel="noopener">Try it live</a>
+   </div>
+<pre aria-hidden="true"><span class="d">modes</span>   easy | medium | hard
+<span class="d">tracks</span>  wpm, accuracy, time
+<span class="g">the quick brown fox ju</span>mps over<span class="k">|</span></pre>
+  </article>
+  <article class="proj">
+   <div>
+    <h3>Number guessing game</h3>
+    <p>A C program where the computer picks a random number and you try to find it. It gives too-high and too-low hints, keeps score, and limits your attempts.</p>
+    <div class="tags"><span>C</span><span>Command line</span></div>
+    <a class="plink" href="https://github.com/tanisha1120" target="_blank" rel="noopener">View on GitHub</a>
+   </div>
+<pre aria-hidden="true"><span class="d">$</span> ./guess
+Guess a number (1-100): 50
+<span class="k">Too high.</span> Attempts left: 4
+Guess a number (1-100): <span class="k">|</span></pre>
+  </article>
+  <article class="proj">
+   <div>
+    <h3>Unit converter</h3>
+    <p>A C tool that converts length, weight and temperature from a simple menu. It handles invalid input and runs straight from the terminal.</p>
+    <div class="tags"><span>C</span><span>Command line</span></div>
+    <a class="plink" href="https://github.com/tanisha1120" target="_blank" rel="noopener">View on GitHub</a>
+   </div>
+<pre aria-hidden="true"><span class="d">$</span> ./convert
+1) Length  2) Weight  3) Temperature
+Choose: 3
+<span class="g">Enter value in Celsius:</span> <span class="k">|</span></pre>
+  </article>
+  <article class="proj">
+   <div>
+    <h3>Personal link page</h3>
+    <p>A small page that collects my GitHub and contact links, hosted on GitHub Pages. It was the first webpage I deployed properly.</p>
+    <div class="tags"><span>HTML</span><span>CSS</span><span>GitHub Pages</span></div>
+   </div>
+<pre aria-hidden="true"><span class="d">&lt;a</span> <span class="k">href</span>=<span class="g">"github.com/tanisha1120"</span><span class="d">&gt;</span>GitHub<span class="d">&lt;/a&gt;</span>
+<span class="d">&lt;a</span> <span class="k">href</span>=<span class="g">"mailto:..."</span><span class="d">&gt;</span>Email<span class="d">&lt;/a&gt;</span></pre>
+  </article>
+ </div>
+</div></section>
 
-<div class="section" id="about">
-    <p class="section-tag">About</p>
-    <h2>Who I am</h2>
-    <hr class="divider">
-    <div class="about-text">
-        <p>I'm a 3rd year CSE student from Gorakhpur. I started coding in C in my first year and it kind of just stuck. Since then I've done Java training, built a couple of small projects, and made some web pages including this one.</p>
-        <p>I've also anchored college events like the IBM SkillsBuild workshop. Right now I'm learning Python on the side and trying to get better at web development with Java.</p>
-        <p>Looking for a job where I get to do actual work and keep learning. Open to any location.</p>
-    </div>
-</div>
+<section id="education"><div class="wrap grid">
+ <h2>Education and training<span class="sub">Newest first.</span></h2>
+ <div class="tl">
+  <article class="now-dot"><time>Expected May 2027</time><div><h3>B.Tech, Computer Science and Engineering</h3><p>Krishna Institute of Technology, Kanpur</p><span class="grade">8.1 SGPA</span></div></article>
+  <article><time>Sept to Nov 2025</time><div><h3>Advanced Java training<span class="chip">Training</span></h3><p>Modern Java features, clean code practices and modular design. I want to use this to build web apps.</p></div></article>
+  <article><time>Sept 2024 to Feb 2025</time><div><h3>OOP with C++<span class="chip">Training</span></h3><p>Inheritance, polymorphism and encapsulation, practised by writing class-based programs.</p></div></article>
+  <article><time>April 2023</time><div><h3>Class XII, PCM</h3><p>P.N. National School, Fazilnagar (Kushinagar)</p><span class="grade">70%</span></div></article>
+  <article><time>May 2021</time><div><h3>Class X</h3><p>P.N. National School, Gorakhpur</p><span class="grade">75%</span></div></article>
+ </div>
+</div></section>
 
-<div class="section" id="skills">
-    <p class="section-tag">Skills</p>
-    <h2>What I know</h2>
-    <hr class="divider">
-    <div class="skills-row">
-        <span class="skill-box">C</span>
-        <span class="skill-box">Java</span>
-        <span class="skill-box">HTML</span>
-        <span class="skill-box">CSS</span>
-        <span class="skill-box">SQL</span>
-        <span class="skill-box">Python (learning)</span>
-        <span class="skill-box">OOP</span>
-        <span class="skill-box">DBMS basics</span>
-        <span class="skill-box">C++</span>
-        <span class="skill-box">GitHub</span>
-    </div>
-</div>
+<section id="contact" class="contact"><div class="wrap grid">
+ <h2>Contact<span class="sub">The fastest way to reach me is email.</span></h2>
+ <div>
+  <p style="margin-bottom:22px;color:var(--mute);max-width:46ch">I'm looking for a first role where I can do real work and keep learning, in any location. If you're hiring, I'd like to hear from you.</p>
+  <a class="mail" id="mail" href="mailto:tanishasingh3082005@gmail.com">tanishasingh3082005@gmail.com</a>
+  <div class="crow">
+   <button id="copy" type="button">Copy email</button>
+   <a href="https://github.com/tanisha1120" target="_blank" rel="noopener">github.com/tanisha1120</a>
+   <a href="tel:+919838515513">+91 98385 XXXXX</a>
+  </div>
+ </div>
+</div></section>
+</main>
 
-<div class="section" id="projects">
-    <p class="section-tag">Projects</p>
-    <h2>Things I've made</h2>
-    <hr class="divider">
-
-    <div class="project-box">
-        <h3>⌨️ Typing Speed Test</h3>
-        <p>Made this as a fun web project. It tracks your WPM and accuracy while you type, has easy/medium/hard modes, a timer, and shows your result at the end. All HTML, CSS, and JS — no libraries used.</p>
-        <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
-        <br>
-        <a href="https://tanisha1120.github.io/TypingTest/" target="_blank" class="project-link">→ Try it live</a>
-    </div>
-
-    <div class="project-box">
-        <h3>🎮 Number Guessing Game</h3>
-        <p>Simple C program where the computer picks a random number and you guess it. Gives hints like too high or too low, tracks your score, limited attempts.</p>
-        <span class="tag">C</span><span class="tag">CLI</span>
-        <br>
-        <a href="https://github.com/tanisha1120" target="_blank" class="project-link">→ GitHub</a>
-    </div>
-
-    <div class="project-box">
-        <h3>📐 Unit Converter</h3>
-        <p>A C tool that converts between different units like length, weight, and temperature. Has a menu to navigate, handles wrong inputs, can run from terminal.</p>
-        <span class="tag">C</span><span class="tag">CLI</span>
-        <br>
-        <a href="https://github.com/tanisha1120" target="_blank" class="project-link">→ GitHub</a>
-    </div>
-
-    <div class="project-box">
-        <h3>🔗 Personal Link Page</h3>
-        <p>A small page with all my links — GitHub, contact etc. Hosted on GitHub Pages. Was my first properly deployed webpage.</p>
-        <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">GitHub Pages</span>
-        <br>
-    </div>
-</div>
-
-<div class="section" id="education">
-    <p class="section-tag">Education</p>
-    <h2>Academic background</h2>
-    <hr class="divider">
-
-    <div class="edu-box">
-        <div>
-            <h3>B.Tech — Computer Science & Engineering</h3>
-            <p>Krishna Institute of Technology, Kanpur</p>
-        </div>
-        <div class="edu-right">
-            <p class="edu-year">Expected May 2027</p>
-            <span class="edu-grade">8.1 SGPA</span>
-        </div>
-    </div>
-
-    <div class="edu-box">
-        <div>
-            <h3>Class XII — PCM</h3>
-            <p>P.N. National School, Fazilnagar (Kushinagar)</p>
-        </div>
-        <div class="edu-right">
-            <p class="edu-year">April 2023</p>
-            <span class="edu-grade">70%</span>
-        </div>
-    </div>
-
-    <div class="edu-box">
-        <div>
-            <h3>Class X</h3>
-            <p>P.N. National School, Gorakhpur</p>
-        </div>
-        <div class="edu-right">
-            <p class="edu-year">May 2021</p>
-            <span class="edu-grade">75%</span>
-        </div>
-    </div>
-</div>
-
-<div class="section">
-    <p class="section-tag">Certifications</p>
-    <h2>Training</h2>
-    <hr class="divider">
-
-    <div class="cert-box">
-        <h3>Advanced Java Training</h3>
-        <p class="cert-period">Sept 2025 – Nov 2025</p>
-        <p>Went through modern Java features, clean code practices, and modular design. Want to use this for web apps in the future.</p>
-    </div>
-
-    <div class="cert-box">
-        <h3>OOP with C++</h3>
-        <p class="cert-period">Sept 2024 – Feb 2025</p>
-        <p>Covered OOP concepts like inheritance, polymorphism, and encapsulation. Wrote class-based programs as part of the training.</p>
-    </div>
-</div>
-
-<div class="section" id="contact">
-    <p class="section-tag">Contact</p>
-    <h2>Get in touch</h2>
-    <hr class="divider">
-    <div class="contact-row">
-        <a href="mailto:tanishasingh3082005@gmail.com" class="contact-item">✉️ tanishasingh3082005@gmail.com</a>
-        <a href="https://github.com/tanisha1120" target="_blank" class="contact-item">🐙 github.com/tanisha1120</a>
-        <a href="tel:+919838515513" class="contact-item">📞 +91 98385 15513</a>
-    </div>
-</div>
-
-<footer>
-    Tanisha Singh · 2026
-</footer>
+<footer><div class="wrap"><span>Tanisha Singh, 2026</span><span>Hand-coded in  HTML, CSS and JavaScript.</span></div></footer>
 
 <script>
-    let isDark = false;
-    let btn = document.getElementById('theme-toggle');
+(function () {
+    var root = document.documentElement;
+    var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    btn.addEventListener('click', function() {
-        isDark = !isDark;
-        if (isDark) {
-            document.body.classList.add('dark');
-            btn.textContent = '☀️ Light';
+    /* theme */
+    var saved = null;
+    try {
+        saved = localStorage.getItem('theme');
+    } catch (e) {}
+
+    var dark = saved
+        ? saved === 'dark'
+        : matchMedia('(prefers-color-scheme: dark)').matches;
+
+    function apply() {
+        root.setAttribute('data-theme', dark ? 'dark' : 'light');
+        document.querySelector('meta[name=theme-color]').content = dark ? '#0f1612' : '#ebeee7';
+    }
+
+    apply();
+
+    document.getElementById('theme').addEventListener('click', function () {
+        dark = !dark;
+        apply();
+
+        try {
+            localStorage.setItem('theme', dark ? 'dark' : 'light');
+        } catch (e) {}
+    });
+
+    /* typed line */
+    var el = document.getElementById('type');
+    var lines = [
+        'I write programs in C and Java.',
+        'I build web pages with HTML, CSS and JS.',
+        'I am learning Python right now.'
+    ];
+    var i = 0;
+    var n = 0;
+    var del = false;
+
+    function tick() {
+        var s = lines[i];
+        n += del ? -1 : 1;
+        el.textContent = s.slice(0, n);
+
+        var t = del ? 24 : 55;
+
+        if (!del && n === s.length) {
+            del = true;
+            t = 1800;
+        } else if (del && n === 0) {
+            del = false;
+            i = (i + 1) % lines.length;
+            t = 350;
+        }
+
+        setTimeout(tick, t);
+    }
+
+    if (!reduce) {
+        el.textContent = '';
+        setTimeout(tick, 500);
+    }
+
+    /* active nav link */
+    var links = [].slice.call(document.querySelectorAll('.nav-r a'));
+    var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+            if (e.isIntersecting) {
+                links.forEach(function (a) {
+                    a.classList.toggle(
+                        'on',
+                        a.getAttribute('href') === '#' + e.target.id
+                    );
+                });
+            }
+        });
+    }, {
+        rootMargin: '-45% 0px -50% 0px'
+    });
+
+    document.querySelectorAll('section[id]').forEach(function (s) {
+        io.observe(s);
+    });
+
+    /* copy email */
+    var b = document.getElementById('copy');
+    var addr = document.getElementById('mail').textContent;
+
+    b.addEventListener('click', function () {
+        function done() {
+            b.textContent = 'Email copied';
+            b.classList.add('ok');
+
+            setTimeout(function () {
+                b.textContent = 'Copy email';
+                b.classList.remove('ok');
+            }, 1800);
+        }
+
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(addr).then(
+                done,
+                function () {
+                    location.href = 'mailto:' + addr;
+                }
+            );
         } else {
-            document.body.classList.remove('dark');
-            btn.textContent = '🌙 Dark';
+            location.href = 'mailto:' + addr;
         }
     });
-
-    // photo logic — if image loads fine show it, else keep placeholder visible
-    var img = document.getElementById('profile-photo');
-    img.addEventListener('load', function() {
-        if (img.src && img.src !== window.location.href) {
-            img.style.display = 'block';
-            document.querySelector('.placeholder-text').style.display = 'none';
-            document.querySelector('.placeholder-hint').style.display = 'none';
-        }
-    });
+})();
 </script>
-
 </body>
 </html>
